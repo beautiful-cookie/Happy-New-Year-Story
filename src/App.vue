@@ -4,9 +4,9 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss"> 
 * {
-  margin: 0;
+  margin: 0; 
   padding: 0;
   box-sizing: border-box; 
 
@@ -32,7 +32,7 @@ body {
     width: 100vw; 
     min-height: 100vh;
     height: 100%; 
-    background: rgba(0, 0, 0, 0.6); 
+    background: rgba(0, 0, 0, 0.7); 
     z-index: 2; 
   }
 } 
