@@ -79,5 +79,5 @@ body {
 <style> 
 /* all used fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap'); 
-
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap'); 
 </style>

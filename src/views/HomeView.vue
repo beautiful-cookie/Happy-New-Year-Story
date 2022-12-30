@@ -1,35 +1,47 @@
 <template>
   <div class="content-wrapper">
-    <span class="title">С Новым 2023 Годом!</span> 
+    <span class="title" data-aos="fade-down" data-aos-duration="1400">С Новым 2023 Годом!</span> 
 
-    <p class="inspiring-text" v-if="showInspText">
-      Время идет и мы меняемся, но вместе с нами природа тоже 
-      претерпевает определенные изменения. Каждый момент уникален и ценен, но особенно 
-      ценным его делает тот факт, что его прожили мы. Ниже можно увидеть подборку таких 
-      моментов  
-    </p> 
+    <transition name="titleTxt" appear>
+      <p class="inspiring-text">
+        Время идет. Эту мысль мы часто обдумываем, ощущая неумалимый ход времени, мы вспоминаем
+        как недавно только начиналось то, что уже подходит к концу. Так же быстро прошел и этот год, так же 
+        быстро пройдет и следующий. Но всегда приятно остановиться и оглянуться назад, в это самое ушедшее прошлое. 
+        Мы делаем фотографии и видео именно для таких моментов. Они служат своего рода капсулой времени, запечатавшей в себе 
+        памятный осколок минувшего момента, каждый из которых уникален и ценен, именно тем, что его прожили мы. Мы были теми, 
+        кто надолго запечатал его в памяти своего телефона, тем самым доказав нескончаемому потоку событий своё существование. 
+      </p> 
+    </transition> 
     <span class="title photo">Фото альбом этого года</span> 
     <Cards /> 
+    <span class="title photo" data-aos="fade-down" data-aos-duration="800">Видео альбом этого года</span> 
+    <Videos /> 
+    <footer></footer>
   </div>
 </template> 
 
 <script>
 import Cards from '@/components/Cards.vue'; 
+import Videos from '@/components/Videos.vue'; 
 export default {
   name: 'HomeView', 
-  data() {
-    return {
-      showInspText: false 
-    }
-  }, 
-  created() {
-    this.showInspText = true
-  }, 
   components: {
-    Cards 
-  }
+    Cards, Videos 
+  }, 
 }
 </script> 
+
+<style scoped>
+.titleTxt-enter-active, 
+.titleTxt-leave-active {
+    transition: all 0.8s; 
+}
+.titleTxt-enter, 
+.titleTxt-leave-to {
+    opacity: 0; 
+    transform: translateY(-30px);
+}
+</style>
 
 <style lang="scss" scoped> 
 .content-wrapper {
@@ -74,8 +86,9 @@ export default {
     font-family: 'Montserrat', sans-serif;
     border-width: 8px; 
     border-top: solid rgba(150, 150, 150, 0.8);  
-    border-left: solid rgba(121, 121, 121, 0.8);
+    border-left: solid rgba(109, 109, 109, 0.8);
     padding: 10px; 
+
   }
 
   .line {
@@ -83,13 +96,28 @@ export default {
     height: 2px; 
     background-color: gray; 
     margin-top: 20px; 
+  } 
+
+  footer { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    margin-top: 20px; 
+    width: 100vw; 
+    max-width: 80%; 
+    height: 15vh; 
+    font-size: 16px; 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    text-shadow: 0 0 2px white; 
+    color: white; 
   }
 }
 
 
 @media screen and (max-width: 670px)  {
   .content-wrapper {
-    .title {
+    .title { 
       font-size: 40px; 
     }
     .photo {
