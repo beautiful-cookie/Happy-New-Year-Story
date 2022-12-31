@@ -1,4 +1,4 @@
-# happy-new-year-story-about-five-friends
+# shards-of-our-memories
 
 ## Project setup
 ```
