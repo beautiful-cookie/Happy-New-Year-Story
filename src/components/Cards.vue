@@ -1,7 +1,7 @@
 <template>
   <div class="cards-content">
 
-    <div class="card-wrapper" :data-aos='swichAOS()' data-aos-duration="1500" v-for="picture of picturesArr" :key="picture">
+    <div class="card-wrapper" :data-aos='swichAOS(picture)' data-aos-duration="1500" v-for="picture of picturesArr" :key="picture">
       <img :src="require(`../assets/nature-pictures/photo(${picture}).jpg`)" alt="Картинка не загрузилась">
     </div>
 
@@ -13,7 +13,6 @@ export default {
   data() {
     return {
       picturesArr: [], 
-      changeAOS: true 
     }
   }, 
   created() {
@@ -25,9 +24,8 @@ export default {
         this.picturesArr.push(i)
       } 
     }, 
-    swichAOS() {
-      this.changeAOS = !this.changeAOS 
-      return this.changeAOS ? 'fade-down-left' : 'fade-down-right'
+    swichAOS(pic) {
+      return pic % 2 ? 'fade-down-right' : 'fade-down-left'
     }
   }
 }
@@ -41,7 +39,7 @@ export default {
   align-items: center; 
   flex-wrap: wrap; 
   width: 100%; 
-  margin-top: 40px; 
+  margin-top: 5vh; 
   gap: 30px; 
   overflow: scroll; 
 

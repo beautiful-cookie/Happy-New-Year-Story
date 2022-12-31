@@ -29,7 +29,7 @@ body {
     position: absolute; 
     top: 0; 
     left: 0; 
-    width: 100vw; 
+    width: 110%;  
     min-height: 100vh;
     height: 100%; 
     background: rgba(0, 0, 0, 0.7); 

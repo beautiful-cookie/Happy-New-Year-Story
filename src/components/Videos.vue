@@ -1,6 +1,6 @@
 <template>
   <div class="video-content">
-    <div class="video-wrapper" :data-aos='swichVideosAOS()' data-aos-duration="1400" v-for="video of videosArr" :key="video">
+    <div class="video-wrapper" :data-aos='swichVideosAOS(video)' data-aos-duration="1400" v-for="video of videosArr" :key="video">
       <video width="320" height="240" controls> 
         <source :src="require(`@/assets/videos/video(${video}).mp4`)" type="video/mp4">
         Похоже твой браузер не поддерживает видео теги 
@@ -15,7 +15,6 @@ export default {
   data() {
     return {
       videosArr: [], 
-      changeVideosAOS: true   
     }
   }, 
   created() { 
@@ -27,9 +26,8 @@ export default {
         this.videosArr.push(i)
       }
     }, 
-    swichVideosAOS() {
-      this.changeVideosAOS = !this.changeVideosAOS 
-      return this.changeVideosAOS ? 'fade-down-left' : 'fade-down-right'
+    swichVideosAOS(vid) {
+      return vid % 2 ? 'fade-down-right' : 'fade-down-left' 
     } 
   }
 }
